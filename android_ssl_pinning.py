@@ -34,7 +34,6 @@ def decompile_apk(apk_file):
     print("✅ APK Decompiled Successfully!")
 
 
-
 def convert_manifest():
     """Converts binary AndroidManifest.xml to readable XML if needed, then restores it before rebuilding."""
     manifest_path = "extracted_apk/AndroidManifest.xml"
@@ -190,62 +189,80 @@ def inject_security_wrapper(package_name):
 
 def inject_ssl_pinning(smali_file, network_library, package_name):
     """
-    Injects SSL pinning logic into the detected networking package.
+    Injects SSL pinning logic for OkHttp into the specified smali file.
     
-    It also ensures that the SecurityWrapper class is injected into the APK.
+    It replaces every instantiation of OkHttpClient (new-instance + <init>)
+    with a call to SecurityWrapper.getPinnedClient().
     
     The package_name should be provided as: "com/example/fortisign_test_pinning/"
     (without a leading "L").
     """
-    
+    # We only support okhttp in this injection.
+    if network_library.lower() != "okhttp":
+        print("❌ Only OkHttp injection is supported in this function.")
+        return
+
     # Build the class reference in smali format.
-    # Note: It must start with "L" and end with ";".
+    # Must start with "L" and end with ";".
     smali_package = f"L{package_name}SecurityWrapper;"
-    
-    SSL_PINNING_CODES = {
-        "okhttp": f"""
-            invoke-static {{}}, {smali_package}->getPinnedClient()Lokhttp3/OkHttpClient;
-            move-result-object v0
-        """,
-        "https_url_connection": f"""
-            invoke-static {{}}, {smali_package}->getPinnedSSLSocketFactory()Ljavax/net/ssl/SSLSocketFactory;
-            move-result-object v0
-            invoke-virtual {{p1, v0}}, Ljavax/net/ssl/HttpsURLConnection;->setSSLSocketFactory(Ljava/net/ssl/SSLSocketFactory;)V
-        """,
-        "retrofit": f"""
-            invoke-static {{}}, {smali_package}->getPinnedRetrofit()Lretrofit2/Retrofit;
-            move-result-object v0
-        """
-    }
-    
+
+    # Define the injection snippet.
+    # We use a placeholder __REG__ to be replaced by the actual register.
+    injection_code = (
+        "invoke-static {}, " + smali_package +
+        "->getPinnedClient()Lokhttp3/OkHttpClient;\n" +
+        "    move-result-object __REG__"
+    )
+
     with open(smali_file, "r", encoding="utf-8") as f:
         content = f.read()
-    
-    # Detect existing .locals count and ensure at least 2 registers.
-    locals_match = re.search(r"\.locals (\d+)", content)
-    if locals_match:
-        current_locals = int(locals_match.group(1))
-        new_locals = max(current_locals, 2)
-        content = re.sub(r"\.locals \d+", f".locals {new_locals}", content)
-    
-    ssl_pinning_code = SSL_PINNING_CODES.get(network_library, "")
-    if not ssl_pinning_code:
-        print(f"❌ No SSL pinning code available for {network_library}")
-        return
-    
-    # Locate the correct place for injection (just after the .locals line).
-    method_match = re.search(r"(\.method.*?)(\.locals \d+)", content, re.DOTALL)
-    if method_match:
-        method_start, locals_line = method_match.groups()
-        insertion_point = locals_line + "\n" + ssl_pinning_code  # insert code after the locals declaration
-        modified_content = content.replace(locals_line, insertion_point)
+
+    modified_content = content  # default
+
+    # Pattern to match a new-instance followed by its <init> call.
+    # It matches registers that start with either "v" or "p", so that it catches
+    # cases like "new-instance p0, Lokhttp3/OkHttpClient;" as well.
+    pattern = (
+        r"new-instance\s+([pv]\d+),\s+Lokhttp3/OkHttpClient;\s*\n\s*"
+        r"invoke-direct\s+\{\1\},\s+Lokhttp3/OkHttpClient;-><init>\(\)V"
+    )
+
+    def replacement(match):
+        reg = match.group(1)  # e.g., v0 or p0
+        # Replace the placeholder __REG__ with the actual register.
+        injected = injection_code.replace("__REG__", reg)
+        return injected
+
+    new_content, count = re.subn(pattern, replacement, content, flags=re.DOTALL)
+
+    if count > 0:
+        modified_content = new_content
+        print(f"✅ Replaced {count} OkHttpClient constructor call(s) with SSL pinning injection in {smali_file}")
     else:
-        print(f"❌ No valid method found in {smali_file}")
-        return
-    
+        # Fallback: if no explicit constructor was found, inject after the .locals declaration.
+        print(f"ℹ️  No explicit OkHttpClient constructor found in {smali_file}. Using fallback injection after .locals.")
+        locals_match = re.search(r"\.locals (\d+)", content)
+        if locals_match:
+            current_locals = int(locals_match.group(1))
+            new_locals = max(current_locals, 2)
+            content = re.sub(r"\.locals \d+", f".locals {new_locals}", content)
+        method_match = re.search(r"(\.method.*?)(\.locals \d+)", content, re.DOTALL)
+        if method_match:
+            method_start, locals_line = method_match.groups()
+            # Fallback injection uses v0.
+            fallback_injection = (
+                "invoke-static {}, " + smali_package +
+                "->getPinnedClient()Lokhttp3/OkHttpClient;\n" +
+                "    move-result-object v0"
+            )
+            modified_content = content.replace(locals_line, locals_line + "\n" + fallback_injection)
+        else:
+            print(f"❌ No valid method found in {smali_file}")
+            return
+
     with open(smali_file, "w", encoding="utf-8") as f:
         f.write(modified_content)
-    
+
     print(f"✅ SSL Pinning injected into {smali_file}")
 
 def rebuild_and_sign_apk():
@@ -289,6 +306,7 @@ def rebuild_and_sign_apk():
         else:
             os.remove("extracted_apk")
             print("   Removed file: extracted_apk")
+
 
 def main():
     """Main function to handle the entire SSL pinning injection process."""

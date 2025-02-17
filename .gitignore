@@ -1,4 +1,6 @@
 *.log
 *.pid
 *.apk
+app_bin
 *.apk.idsig
+extracted_apk
