@@ -1,6 +1,12 @@
 *.log
 *.pid
 *.apk
-app_bin
+*.ipa
+
+android_bin
+ios_bin
+
 *.apk.idsig
+
 extracted_apk
+ipa_work
