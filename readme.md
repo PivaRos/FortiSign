@@ -41,7 +41,7 @@ This project demonstrates secure network communication using SSL pinning for bot
 **1. Clone the Repository:**
 
 ```bash
-git clone <repository_url>
+git clone https://github.com/PivaRos/FortiSign
 cd FortiSign
 ```
 
