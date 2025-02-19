@@ -6,33 +6,38 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		D3EF0C9D2D652DE40077CA15 /* SSLPinningDylib.m in Sources */ = {isa = PBXBuildFile; fileRef = D3EF0C9C2D652DE40077CA15 /* SSLPinningDylib.m */; };
+/* End PBXBuildFile section */
+
 /* Begin PBXFileReference section */
-		D3D93D762D637CF4008664D1 /* ssl_pinning.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = ssl_pinning.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		D3EF0C8B2D652D6A0077CA15 /* SSLPinningDylib.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SSLPinningDylib.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		D3EF0C9C2D652DE40077CA15 /* SSLPinningDylib.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SSLPinningDylib.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
-		D3D93D7D2D637CF4008664D1 /* Exceptions for "ssl_pinning" folder in "ssl_pinning" target */ = {
+		D3EF0C922D652D6A0077CA15 /* Exceptions for "SSLPinningDylib" folder in "SSLPinningDylib" target */ = {
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
 			publicHeaders = (
-				ssl_pinning.h,
+				SSLPinningDylib.h,
 			);
-			target = D3D93D752D637CF4008664D1 /* ssl_pinning */;
+			target = D3EF0C8A2D652D6A0077CA15 /* SSLPinningDylib */;
 		};
 /* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
-		D3D93D782D637CF4008664D1 /* ssl_pinning */ = {
+		D3EF0C8D2D652D6A0077CA15 /* SSLPinningDylib */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
 			exceptions = (
-				D3D93D7D2D637CF4008664D1 /* Exceptions for "ssl_pinning" folder in "ssl_pinning" target */,
+				D3EF0C922D652D6A0077CA15 /* Exceptions for "SSLPinningDylib" folder in "SSLPinningDylib" target */,
 			);
-			path = ssl_pinning;
+			path = SSLPinningDylib;
 			sourceTree = "<group>";
 		};
 /* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		D3D93D732D637CF4008664D1 /* Frameworks */ = {
+		D3EF0C882D652D6A0077CA15 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -42,18 +47,19 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		D3D93D6C2D637CF4008664D1 = {
+		D3EF0C812D652D6A0077CA15 = {
 			isa = PBXGroup;
 			children = (
-				D3D93D782D637CF4008664D1 /* ssl_pinning */,
-				D3D93D772D637CF4008664D1 /* Products */,
+				D3EF0C9C2D652DE40077CA15 /* SSLPinningDylib.m */,
+				D3EF0C8D2D652D6A0077CA15 /* SSLPinningDylib */,
+				D3EF0C8C2D652D6A0077CA15 /* Products */,
 			);
 			sourceTree = "<group>";
 		};
-		D3D93D772D637CF4008664D1 /* Products */ = {
+		D3EF0C8C2D652D6A0077CA15 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				D3D93D762D637CF4008664D1 /* ssl_pinning.framework */,
+				D3EF0C8B2D652D6A0077CA15 /* SSLPinningDylib.framework */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -61,7 +67,7 @@
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
-		D3D93D712D637CF4008664D1 /* Headers */ = {
+		D3EF0C862D652D6A0077CA15 /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -71,64 +77,64 @@
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
-		D3D93D752D637CF4008664D1 /* ssl_pinning */ = {
+		D3EF0C8A2D652D6A0077CA15 /* SSLPinningDylib */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = D3D93D7E2D637CF4008664D1 /* Build configuration list for PBXNativeTarget "ssl_pinning" */;
+			buildConfigurationList = D3EF0C932D652D6A0077CA15 /* Build configuration list for PBXNativeTarget "SSLPinningDylib" */;
 			buildPhases = (
-				D3D93D712D637CF4008664D1 /* Headers */,
-				D3D93D722D637CF4008664D1 /* Sources */,
-				D3D93D732D637CF4008664D1 /* Frameworks */,
-				D3D93D742D637CF4008664D1 /* Resources */,
+				D3EF0C862D652D6A0077CA15 /* Headers */,
+				D3EF0C872D652D6A0077CA15 /* Sources */,
+				D3EF0C882D652D6A0077CA15 /* Frameworks */,
+				D3EF0C892D652D6A0077CA15 /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
 			fileSystemSynchronizedGroups = (
-				D3D93D782D637CF4008664D1 /* ssl_pinning */,
+				D3EF0C8D2D652D6A0077CA15 /* SSLPinningDylib */,
 			);
-			name = ssl_pinning;
+			name = SSLPinningDylib;
 			packageProductDependencies = (
 			);
-			productName = ssl_pinning;
-			productReference = D3D93D762D637CF4008664D1 /* ssl_pinning.framework */;
+			productName = SSLPinningDylib;
+			productReference = D3EF0C8B2D652D6A0077CA15 /* SSLPinningDylib.framework */;
 			productType = "com.apple.product-type.framework";
 		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
-		D3D93D6D2D637CF4008664D1 /* Project object */ = {
+		D3EF0C822D652D6A0077CA15 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
 				LastUpgradeCheck = 1610;
 				TargetAttributes = {
-					D3D93D752D637CF4008664D1 = {
+					D3EF0C8A2D652D6A0077CA15 = {
 						CreatedOnToolsVersion = 16.1;
 					};
 				};
 			};
-			buildConfigurationList = D3D93D702D637CF4008664D1 /* Build configuration list for PBXProject "ssl_pinning" */;
+			buildConfigurationList = D3EF0C852D652D6A0077CA15 /* Build configuration list for PBXProject "SSLPinningDylib" */;
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
 				Base,
 			);
-			mainGroup = D3D93D6C2D637CF4008664D1;
+			mainGroup = D3EF0C812D652D6A0077CA15;
 			minimizedProjectReferenceProxies = 1;
 			preferredProjectObjectVersion = 77;
-			productRefGroup = D3D93D772D637CF4008664D1 /* Products */;
+			productRefGroup = D3EF0C8C2D652D6A0077CA15 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				D3D93D752D637CF4008664D1 /* ssl_pinning */,
+				D3EF0C8A2D652D6A0077CA15 /* SSLPinningDylib */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		D3D93D742D637CF4008664D1 /* Resources */ = {
+		D3EF0C892D652D6A0077CA15 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -138,19 +144,22 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		D3D93D722D637CF4008664D1 /* Sources */ = {
+		D3EF0C872D652D6A0077CA15 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D3EF0C9D2D652DE40077CA15 /* SSLPinningDylib.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin XCBuildConfiguration section */
-		D3D93D7F2D637CF4008664D1 /* Debug */ = {
+		D3EF0C942D652D6A0077CA15 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALLOW_TARGET_PLATFORM_SPECIALIZATION = YES;
+				BUILD_LIBRARY_FOR_DISTRIBUTION = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEFINES_MODULE = YES;
@@ -162,25 +171,37 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 18.1;
 				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
+				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = (
+					"@executable_path/../Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 15.1;
 				MARKETING_VERSION = 1.0;
 				MODULE_VERIFIER_SUPPORTED_LANGUAGES = "objective-c objective-c++";
 				MODULE_VERIFIER_SUPPORTED_LANGUAGE_STANDARDS = "gnu17 gnu++20";
-				PRODUCT_BUNDLE_IDENTIFIER = "gurbin.ssl-pinning";
+				PRODUCT_BUNDLE_IDENTIFIER = gurbin.SSLPinningDylib;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = auto;
 				SKIP_INSTALL = YES;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx xros xrsimulator";
 				SWIFT_EMIT_LOC_STRINGS = YES;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				SWIFT_INSTALL_OBJC_HEADER = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2,7";
+				XROS_DEPLOYMENT_TARGET = 2.1;
 			};
 			name = Debug;
 		};
-		D3D93D802D637CF4008664D1 /* Release */ = {
+		D3EF0C952D652D6A0077CA15 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALLOW_TARGET_PLATFORM_SPECIALIZATION = YES;
+				BUILD_LIBRARY_FOR_DISTRIBUTION = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEFINES_MODULE = YES;
@@ -192,23 +213,33 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 18.1;
 				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
+				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = (
+					"@executable_path/../Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 15.1;
 				MARKETING_VERSION = 1.0;
 				MODULE_VERIFIER_SUPPORTED_LANGUAGES = "objective-c objective-c++";
 				MODULE_VERIFIER_SUPPORTED_LANGUAGE_STANDARDS = "gnu17 gnu++20";
-				PRODUCT_BUNDLE_IDENTIFIER = "gurbin.ssl-pinning";
+				PRODUCT_BUNDLE_IDENTIFIER = gurbin.SSLPinningDylib;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = auto;
 				SKIP_INSTALL = YES;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx xros xrsimulator";
 				SWIFT_EMIT_LOC_STRINGS = YES;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				SWIFT_INSTALL_OBJC_HEADER = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2,7";
+				XROS_DEPLOYMENT_TARGET = 2.1;
 			};
 			name = Release;
 		};
-		D3D93D812D637CF4008664D1 /* Debug */ = {
+		D3EF0C962D652D6A0077CA15 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -261,18 +292,18 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 18.1;
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
-				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
 			};
 			name = Debug;
 		};
-		D3D93D822D637CF4008664D1 /* Release */ = {
+		D3EF0C972D652D6A0077CA15 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -319,12 +350,10 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 18.1;
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
-				SDKROOT = iphoneos;
-				VALIDATE_PRODUCT = YES;
+				SWIFT_COMPILATION_MODE = wholemodule;
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
 			};
@@ -333,25 +362,25 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		D3D93D702D637CF4008664D1 /* Build configuration list for PBXProject "ssl_pinning" */ = {
+		D3EF0C852D652D6A0077CA15 /* Build configuration list for PBXProject "SSLPinningDylib" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				D3D93D812D637CF4008664D1 /* Debug */,
-				D3D93D822D637CF4008664D1 /* Release */,
+				D3EF0C962D652D6A0077CA15 /* Debug */,
+				D3EF0C972D652D6A0077CA15 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		D3D93D7E2D637CF4008664D1 /* Build configuration list for PBXNativeTarget "ssl_pinning" */ = {
+		D3EF0C932D652D6A0077CA15 /* Build configuration list for PBXNativeTarget "SSLPinningDylib" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				D3D93D7F2D637CF4008664D1 /* Debug */,
-				D3D93D802D637CF4008664D1 /* Release */,
+				D3EF0C942D652D6A0077CA15 /* Debug */,
+				D3EF0C952D652D6A0077CA15 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
-	rootObject = D3D93D6D2D637CF4008664D1 /* Project object */;
+	rootObject = D3EF0C822D652D6A0077CA15 /* Project object */;
 }

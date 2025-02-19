@@ -29,7 +29,7 @@ rm -rf ./extracted_apk
 
 # Start the new build process and redirect output to the log file.
 log "Starting new build process..."
-python3 ./android_ssl_pinning.py ./android_bin/app-release.apk ./android_bin/Untitled1 key 'asdasdasd' 'asdasdasd' www.chatgpt.com Vekg+x3F9nqs4TpPrlWVhiozepFYg4USuM+nj69ySg4= >> "$LOG_FILE" 2>&1 &
+python3 ./android_ssl_pinning.py ./bin/app-release.apk ./bin/Untitled1 key 'asdasdasd' 'asdasdasd' www.chatgpt.com Vekg+x3F9nqs4TpPrlWVhiozepFYg4USuM+nj69ySg4= >> "$LOG_FILE" 2>&1 &
 new_pid=$!
 echo $new_pid > "$PID_FILE"
 log "Build process started with PID $new_pid, logging to $LOG_FILE"

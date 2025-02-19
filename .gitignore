@@ -10,3 +10,8 @@ ios_bin
 
 extracted_apk
 ipa_work
+*.framework
+
+*.cer
+*.plist
+*.mobileprovision

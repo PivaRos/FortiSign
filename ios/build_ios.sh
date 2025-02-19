@@ -28,13 +28,19 @@ log "Removing ipa_work directory..."
 rm -rf ./ipa_work
 
 # Start the new build process and redirect output to the log file.
-# Update the paths and parameters below as needed:
-#   1. IPA file path (e.g., ./ios_bin/MyApp.ipa)
-#   2. DYLIB path (e.g., ./ios_bin/MyPinning.dylib)
-#   3. Certificate name (e.g., "iPhone Distribution: Your Company")
-#   4. Entitlements plist path (e.g., ./ios_bin/entitlements.plist)
+# Updated parameters:
+#   1. IPA file: GoogleFetcher.ipa
+#   2. DYLIB path: SSLPinningDylib.framework/SSLPinningDylib
+#   3. Certificate: "Apple Development: danielgavgurbin@gmail.com (3JN3C5J8G9)"
+#   4. Entitlements file: entitlements.plist
+#   5. Expected fingerprint: Vekg+x3F9nqs4TpPrlWVhiozepFYg4USuM+nj69ySg4=
 log "Starting new iOS build process..."
-python3 ./ios_ssl_pinning.py ./ios_bin/MyApp.ipa ./ios_bin/MyPinning.dylib "iPhone Distribution: Your Company" "./ios_bin/entitlements.plist" >> "$LOG_FILE" 2>&1 &
+python3 ./ios_ssl_pinning.py \
+  GoogleFetcher.ipa \
+  SSLPinningDylib.framework/SSLPinningDylib \
+  "Apple Development: danielgavgurbin@gmail.com (3JN3C5J8G9)" \
+  entitlements.plist \
+  Vekg+x3F9nqs4TpPrlWVhiozepFYg4USuM+nj69ySg4= >> "$LOG_FILE" 2>&1 &
 new_pid=$!
 echo $new_pid > "$PID_FILE"
 log "Build process started with PID $new_pid, logging to $LOG_FILE"
