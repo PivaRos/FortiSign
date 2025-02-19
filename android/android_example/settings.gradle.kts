@@ -19,5 +19,5 @@ dependencyResolutionManagement {
     }
 }
 
-rootProject.name = "FortiSign_test_pinning"
+rootProject.name = "FortiSign"
 include(":app")

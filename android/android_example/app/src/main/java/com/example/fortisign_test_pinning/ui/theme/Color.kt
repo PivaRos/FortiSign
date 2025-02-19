@@ -1,4 +1,4 @@
-package com.example.fortisign_test_pinning.ui.theme
+package com.example.FortiSign.ui.theme
 
 import androidx.compose.ui.graphics.Color
 

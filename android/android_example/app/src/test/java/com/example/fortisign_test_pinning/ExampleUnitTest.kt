@@ -1,4 +1,4 @@
-package com.example.fortisign_test_pinning
+package com.example.FortiSign
 
 import org.junit.Test
 

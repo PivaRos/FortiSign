@@ -4,11 +4,11 @@ plugins {
 }
 
 android {
-    namespace = "com.example.fortisign_test_pinning"
+    namespace = "com.example.FortiSign"
     compileSdk = 35
 
     defaultConfig {
-        applicationId = "com.example.fortisign_test_pinning"
+        applicationId = "com.example.FortiSign"
         minSdk = 33
         targetSdk = 35
         versionCode = 1

@@ -1,4 +1,4 @@
-package com.example.fortisign_test_pinning
+package com.example.FortiSign
 
 import android.os.Bundle
 import androidx.activity.ComponentActivity
@@ -21,7 +21,7 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import com.example.fortisign_test_pinning.ui.theme.FortiSign_test_pinningTheme
+import com.example.FortiSign.ui.theme.FortiSignTheme
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 import okhttp3.OkHttpClient
@@ -32,7 +32,7 @@ class MainActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContent {
-            FortiSign_test_pinningTheme {
+            FortiSignTheme {
                 Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
                     FetchGoogleContent(modifier = Modifier.padding(innerPadding))
                 }
@@ -83,7 +83,7 @@ suspend fun fetchGoogle(): String {
 @Preview(showBackground = true)
 @Composable
 fun FetchGoogleContentPreview() {
-    FortiSign_test_pinningTheme {
+    FortiSignTheme {
         FetchGoogleContent()
     }
 }

@@ -130,7 +130,7 @@ def inject_security_wrapper(package_name):
     """
     Injects a minimal SecurityWrapper smali class into the APK that implements
     simple SSL pinning via a CertificatePinner using the correct method signature.
-    The package_name is expected in the format "com/example/fortisign_test_pinning/"
+    The package_name is expected in the format "com/example/FortiSign/"
     (without a leading "L").
     """
     import os
@@ -194,7 +194,7 @@ def inject_ssl_pinning(smali_file, network_library, package_name):
     It replaces every instantiation of OkHttpClient (new-instance + <init>)
     with a call to SecurityWrapper.getPinnedClient().
     
-    The package_name should be provided as: "com/example/fortisign_test_pinning/"
+    The package_name should be provided as: "com/example/FortiSign/"
     (without a leading "L").
     """
     # We only support okhttp in this injection.
